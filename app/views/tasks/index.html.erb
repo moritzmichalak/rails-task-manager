@@ -1,0 +1,13 @@
+<h1>My tasks</h1>
+<%  delete = '<i class="fa fa-trash" aria-hidden="false"></i>' %>
+<% @tasks.each do |task| %>
+<h2><input id="check" type="checkbox" name="type[]">
+<%= link_to task.title, task_path(task) %>
+<%= link_to delete.html_safe, destroy_path(task),
+  method: :delete,
+  data: {confirm: "Are you sure?"} %>
+</h2>
+<% end %>
+
+<h2><%= link_to "+ Add a new task", tasks_new_path %></h2>
+
